@@ -1,6 +1,4 @@
-# Aegis AI - Professional Version
-# Goal: Analyze video against platform-specific rules and provide a professional,
-# structured, and downloadable PDF report with a redesigned, intuitive UI.
+# Aegis AI Pro
 
 import os
 import time
@@ -68,7 +66,7 @@ def check_english_content(transcript):
     english_word_count = sum(1 for word in english_indicators if word in transcript_lower)
     
     # Lower threshold and also check for common English patterns
-    if english_word_count >= 5:  # Reduced from 10 to 5
+    if english_word_count >= 5: 
         return True
     
     # Additional check: look for common English sentence patterns
