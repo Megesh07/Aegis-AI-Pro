@@ -1,6 +1,4 @@
-# Aegis AI - Professional Version
-# Goal: Analyze video against platform-specific rules and provide a professional,
-# structured, and downloadable PDF report with a redesigned, intuitive UI.
+# Aegis AI Pro
 
 import os
 import time
@@ -51,25 +49,8 @@ def check_english_content(transcript):
         return False
     
     # Comprehensive English detection including sports terminology
-    english_indicators = [
-        # Basic English words
-        'the', 'and', 'is', 'are', 'was', 'were', 'have', 'has', 'had', 'will', 'would', 'could', 'should', 'this', 'that', 'with', 'for', 'from', 'about', 'like', 'very', 'good', 'bad', 'big', 'small', 'new', 'old', 'time', 'day', 'way', 'year', 'work', 'first', 'last', 'long', 'great', 'little', 'own', 'other', 'some', 'take', 'get', 'make', 'go', 'know', 'see', 'come', 'think', 'look', 'want', 'give', 'use', 'find', 'tell', 'ask', 'seem', 'feel', 'try', 'leave', 'call',
-        # Sports terminology (cricket, football, etc.)
-        'ball', 'bat', 'run', 'game', 'play', 'team', 'player', 'score', 'win', 'lose', 'match', 'field', 'catch', 'hit', 'throw', 'bowl', 'wicket', 'over', 'innings', 'strike', 'goal', 'point', 'round', 'set', 'serve', 'pass', 'shoot', 'defend', 'attack', 'coach', 'captain', 'referee', 'umpire', 'tournament', 'league', 'championship', 'final', 'semi', 'quarter', 'group', 'division', 'season', 'week', 'month', 'today', 'yesterday', 'tomorrow',
-        # Common action words
-        'going', 'coming', 'doing', 'saying', 'playing', 'running', 'walking', 'talking', 'looking', 'watching', 'listening', 'reading', 'writing', 'speaking', 'moving', 'standing', 'sitting', 'lying', 'sleeping', 'eating', 'drinking', 'buying', 'selling', 'buying', 'selling', 'opening', 'closing', 'starting', 'ending', 'beginning', 'finishing',
-        # Numbers and time
-        'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'hundred', 'thousand', 'million', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'minute', 'hour', 'morning', 'afternoon', 'evening', 'night', 'week', 'month', 'year',
-        # Common adjectives
-        'good', 'bad', 'big', 'small', 'high', 'low', 'fast', 'slow', 'hot', 'cold', 'warm', 'cool', 'hard', 'soft', 'easy', 'difficult', 'strong', 'weak', 'rich', 'poor', 'happy', 'sad', 'angry', 'calm', 'excited', 'bored', 'tired', 'fresh', 'clean', 'dirty', 'new', 'old', 'young', 'beautiful', 'ugly', 'nice', 'mean', 'kind', 'cruel', 'smart', 'stupid', 'clever', 'foolish'
-    ]
     
     transcript_lower = transcript.lower()
-    english_word_count = sum(1 for word in english_indicators if word in transcript_lower)
-    
-    # Lower threshold and also check for common English patterns
-    if english_word_count >= 5:  # Reduced from 10 to 5
-        return True
     
     # Additional check: look for common English sentence patterns
     english_patterns = ['[0-9]+:[0-9]+', 'the ', 'and ', 'is ', 'are ', 'was ', 'were ']
